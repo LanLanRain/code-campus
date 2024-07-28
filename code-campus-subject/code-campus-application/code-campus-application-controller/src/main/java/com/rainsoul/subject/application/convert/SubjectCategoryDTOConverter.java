@@ -1,0 +1,17 @@
+package com.rainsoul.subject.application.convert;
+
+import com.rainsoul.subject.application.dto.SubjectCategoryDTO;
+import com.rainsoul.subject.domain.entity.SubjectCategoryBO;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
+/**
+ * @author RainSoul
+ * @create 2024-07-28
+ */
+@Mapper
+public interface SubjectCategoryDTOConverter {
+    SubjectCategoryDTOConverter INSTANCE = Mappers.getMapper(SubjectCategoryDTOConverter.class);
+
+    SubjectCategoryBO convertDtoToCategoryBO(SubjectCategoryDTO subjectCategoryDTO);
+}

@@ -21,7 +21,11 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
 
     @Override
     public SubjectCategory insert(SubjectCategory subjectCategory) {
-        return null;
+        if(log.isInfoEnabled()) {
+            log.info("SubjectCategoryController.add.subjectCategory:{}", subjectCategory);
+        }
+        subjectCategoryDao.insert(subjectCategory);
+        return subjectCategory;
     }
 
     @Override
