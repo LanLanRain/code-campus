@@ -2,6 +2,8 @@ package com.rainsoul.subject.infra.basic.service;
 
 import com.rainsoul.subject.infra.basic.entity.SubjectCategory;
 
+import java.util.List;
+
 /**
  * @author RainSoul
  * @create 2024-07-27
@@ -34,4 +36,7 @@ public interface SubjectCategoryService {
      * @return
      */
     boolean deleteById(Long id);
+
+
+    List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
 }

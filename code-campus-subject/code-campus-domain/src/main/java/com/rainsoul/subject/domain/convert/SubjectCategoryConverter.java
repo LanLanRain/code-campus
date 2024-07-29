@@ -5,6 +5,8 @@ import com.rainsoul.subject.infra.basic.entity.SubjectCategory;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
  * @author RainSoul
  * @create 2024-07-28
@@ -14,4 +16,6 @@ public interface SubjectCategoryConverter {
     SubjectCategoryConverter INSTANCE = Mappers.getMapper(SubjectCategoryConverter.class);
 
     SubjectCategory convertBoToCategory(SubjectCategoryBO subjectCategoryBO);
+
+    List<SubjectCategoryBO> convertCategoryListToBoList(List<SubjectCategory> subjectCategoryList);
 }

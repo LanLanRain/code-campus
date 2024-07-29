@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author RainSoul
@@ -35,11 +36,16 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
 
     @Override
     public int update(SubjectCategory subjectCategory) {
-        return 0;
+        return subjectCategoryDao.update(subjectCategory);
     }
 
     @Override
     public boolean deleteById(Long id) {
         return false;
+    }
+
+    @Override
+    public List<SubjectCategory> queryCategory(SubjectCategory subjectCategory) {
+        return subjectCategoryDao.queryCategory(subjectCategory);
     }
 }
