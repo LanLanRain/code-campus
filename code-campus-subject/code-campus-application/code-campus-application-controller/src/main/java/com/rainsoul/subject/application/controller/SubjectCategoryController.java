@@ -43,7 +43,7 @@ public class SubjectCategoryController {
             return Result.success(true);
         } catch (Exception e) {
             log.error("SubjectCategoryController.add.error:{}", e.getMessage(), e);
-            return Result.fail(e.getMessage());
+            return Result.fail("新增分类失败");
         }
     }
 
@@ -55,8 +55,7 @@ public class SubjectCategoryController {
     @PostMapping("/queryPrimaryCategory")
     public Result<List<SubjectCategoryDTO>> queryPrimaryCategory(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
         try {
-            SubjectCategoryBO subjectCategoryBO = SubjectCategoryDTOConverter.INSTANCE.
-                    convertDtoToCategoryBO(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO = SubjectCategoryDTOConverter.INSTANCE.convertDtoToCategoryBO(subjectCategoryDTO);
             List<SubjectCategoryBO> subjectCategoryBOList = subjectCategoryDomainService.queryCategory(subjectCategoryBO);
             List<SubjectCategoryDTO> subjectCategoryDTOList = SubjectCategoryDTOConverter.INSTANCE.convertCategoryBOListToDTOList(subjectCategoryBOList);
             return Result.success(subjectCategoryDTOList);
@@ -104,7 +103,7 @@ public class SubjectCategoryController {
             return Result.success(result);
         } catch (Exception e) {
             log.error("SubjectCategoryController.update error:{}", e.getMessage(), e);
-            return Result.fail("更新失败");
+            return Result.fail("更新分类失败");
         }
     }
 
@@ -122,5 +121,7 @@ public class SubjectCategoryController {
             return Result.fail("删除分类失败");
         }
     }
+
+
 
 }

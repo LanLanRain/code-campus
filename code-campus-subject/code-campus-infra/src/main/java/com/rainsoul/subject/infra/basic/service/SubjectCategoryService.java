@@ -39,4 +39,5 @@ public interface SubjectCategoryService {
 
 
     List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
+
 }

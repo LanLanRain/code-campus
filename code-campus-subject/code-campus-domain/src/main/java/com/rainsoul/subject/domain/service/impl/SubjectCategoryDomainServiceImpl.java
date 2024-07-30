@@ -35,14 +35,14 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
 
     @Override
     public List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO) {
-        SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
-                .convertBoToCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryBO);
         List<SubjectCategory> subjectCategoryList = subjectCategoryService.queryCategory(subjectCategory);
         List<SubjectCategoryBO> subjectCategoryBOList = SubjectCategoryConverter.INSTANCE.convertCategoryListToBoList(subjectCategoryList);
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryController.queryPrimaryCategory.boList:{}", JSON.toJSONString(subjectCategoryBOList));
         }
         subjectCategoryBOList.forEach(bo -> {
+            //TODO 1
             // Integer subjectCount = subjectCategoryService.querySubjectCount(bo.getId());
             // bo.setCount(subjectCount);
         });
