@@ -1,9 +1,12 @@
 package com.rainsoul.subject.common.enums;
 
+import lombok.Getter;
+
 /**
  * @author RainSoul
  * @create 2024-07-30
  */
+@Getter
 public enum IsDeletedFlagEnum {
     DELETED(1, "已删除"),
     UN_DELETED(0, "未删除");
