@@ -1,9 +1,10 @@
 package com.rainsoul.subject.infra.basic.service.impl;
 
 import com.rainsoul.subject.infra.basic.entity.SubjectLabel;
+import com.rainsoul.subject.infra.basic.mapper.SubjectLabelDao;
 import com.rainsoul.subject.infra.basic.service.SubjectLabelService;
 
-import java.util.Collections;
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -11,33 +12,60 @@ import java.util.List;
  * @create 2024-07-30
  */
 public class SubjectLabelServiceImpl implements SubjectLabelService {
+    @Resource
+    private SubjectLabelDao subjectLabelDao;
+
+    /**
+     * 通过ID查询单条数据
+     *
+     * @param id 主键
+     * @return 实例对象
+     */
     @Override
     public SubjectLabel queryById(Long id) {
-        return null;
+        return this.subjectLabelDao.queryById(id);
     }
 
+    /**
+     * 新增数据
+     *
+     * @param subjectLabel 实例对象
+     * @return 实例对象
+     */
     @Override
     public int insert(SubjectLabel subjectLabel) {
-        return 0;
+        return this.subjectLabelDao.insert(subjectLabel);
     }
 
+    /**
+     * 修改数据
+     *
+     * @param subjectLabel 实例对象
+     * @return 实例对象
+     */
     @Override
     public int update(SubjectLabel subjectLabel) {
-        return 0;
+        return this.subjectLabelDao.update(subjectLabel);
     }
 
+    /**
+     * 通过主键删除数据
+     *
+     * @param id 主键
+     * @return 是否成功
+     */
     @Override
     public boolean deleteById(Long id) {
-        return false;
+        return this.subjectLabelDao.deleteById(id) > 0;
     }
 
     @Override
     public List<SubjectLabel> batchQueryById(List<Long> labelIdList) {
-        return Collections.emptyList();
+        return this.subjectLabelDao.batchQueryById(labelIdList);
     }
 
     @Override
     public List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel) {
-        return Collections.emptyList();
+        return this.subjectLabelDao.queryByCondition(subjectLabel);
     }
 }
